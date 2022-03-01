@@ -1,0 +1,10 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/edit/[cpf]": "pages/edit/[cpf].js",
+  "/edit/styles": "pages/edit/styles.js",
+  "/forms": "pages/forms.js",
+  "/forms/styles": "pages/forms/styles.js",
+  "/": "pages/index.js",
+  "/_error": "pages/_error.js"
+}
