@@ -4,8 +4,6 @@ import * as useReact from "react";
 // Importing axios
 import axios from "axios";
 
-// Creating base url
-
 const api = axios.create({
   baseURL: "http://localhost:3333",
 });

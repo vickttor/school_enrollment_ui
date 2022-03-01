@@ -75,7 +75,6 @@ export function StudentForm() {
             name="deficiency"
             value="Homem"
             onChange={() => {}}
-            checked
           />
           <label htmlFor="positive">Sim</label>
         </div>
@@ -87,6 +86,7 @@ export function StudentForm() {
             name="deficiency"
             value="Mulher"
             onChange={() => {}}
+            checked
           />
           <label htmlFor="negative">Não</label>
         </div>

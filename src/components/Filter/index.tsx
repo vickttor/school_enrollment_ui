@@ -1,12 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { SFilter } from "./styles";
-
-import Image from "next/image";
 
 export function Filter() {
   return (
     <SFilter>
       <div className="filterCard">
-        <Image src="assets/filter.png" alt="Filter" />
+        <img src="assets/filter.png" alt="Filter" />
 
         <input type="search" placeholder="CPF do Estudante/Professor " />
 

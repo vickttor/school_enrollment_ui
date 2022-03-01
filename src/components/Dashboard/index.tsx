@@ -14,7 +14,8 @@ type APIResponse = {
   deficiency_description?: string;
   created_at: Date;
   cpf: string;
-  course_id: string;
+  course_id?: string;
+  courses_id?: string;
   id: string;
 };
 
@@ -50,7 +51,7 @@ export function Dashboard() {
                   <tr key={entity.id}>
                     <td align="center">{entity.cpf}</td>
                     <td align="center">{entity.name}</td>
-                    <td align="center">{entity.course_id}</td>
+                    <td align="center">{entity.courses_id}</td>
                     <td align="center">Professor</td>
                     <td align="center">
                       <BiEdit className="DataEditIcon" size="2ch" />

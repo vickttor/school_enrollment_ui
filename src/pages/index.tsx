@@ -1,8 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Header } from "../components/Header";
 import { Dashboard } from "../components/Dashboard";
-
-import Image from "next/image";
 
 import { RocketDraw } from "../styles/rocketDraw";
 import { Filter } from "../components/Filter";
@@ -18,11 +17,11 @@ export default function App() {
       <RocketDraw>
         <div>
           <span>
-            <Image src="assets/others/image01.png" alt="character" />
+            <img src="assets/creating.png" alt="character" />
           </span>
         </div>
         <div>
-          <Image src="assets/dashboard.png" alt="rocket" />
+          <img src="assets/rocket.png" alt="rocket" />
         </div>
       </RocketDraw>
     </>

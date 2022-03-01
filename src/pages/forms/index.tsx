@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // React
 import * as React from "react";
 
@@ -12,7 +13,6 @@ import { CourseForm } from "../../components/Forms/Course";
 // Styles
 import SFormsPage from "./styles";
 import Link from "next/link";
-import Image from "next/image";
 
 import { IoClose } from "react-icons/io5/index";
 
@@ -20,7 +20,7 @@ export default function FormsPage() {
   // The first form to be show is CourseForm. The forms changes by clicking on buttons
   const [informationsForm, setInformationsForm] = React.useState({
     form: <CourseForm />,
-    img: <Image src="assets/course.png" alt="forms draw" />,
+    img: <img src="assets/course.png" alt="forms draw" />,
     description: (
       <h1>
         A opção <span>Curso</span> faz a criação de um novo curso. Apenas o
@@ -47,7 +47,7 @@ export default function FormsPage() {
 
                 setInformationsForm({
                   form: <CourseForm />,
-                  img: <Image src="assets/course.png" alt="forms draw" />,
+                  img: <img src="assets/course.png" alt="forms draw" />,
                   description: (
                     <h1>
                       A opção <span>Curso</span> faz a criação de um novo curso.
@@ -66,7 +66,7 @@ export default function FormsPage() {
 
                 setInformationsForm({
                   form: <StudentForm />,
-                  img: <Image src="assets/student.png" alt="forms draw" />,
+                  img: <img src="assets/student.png" alt="forms draw" />,
                   description: (
                     <h1>
                       A opção <span>Estudante</span> permite a criação de um
@@ -86,7 +86,7 @@ export default function FormsPage() {
 
                 setInformationsForm({
                   form: <TeacherForm />,
-                  img: <Image src="assets/teacher.png" alt="forms draw" />,
+                  img: <img src="assets/teacher.png" alt="forms draw" />,
                   description: (
                     <h1>
                       A opção <span>Professor</span> permite a criação de um
