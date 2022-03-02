@@ -36,7 +36,7 @@ export default function FormsPage() {
     <SFormsPage>
       <div className="closeLink">
         <Link href="/" passHref>
-          <IoClose size="3ch" />
+          <IoClose size="26" />
         </Link>
       </div>
 
