@@ -39,6 +39,10 @@ const SFormsPage = styled.div`
       margin: 1rem;
       background: var(--hue);
       border-radius: 2rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
 
       .options {
         display: flex;
@@ -61,6 +65,42 @@ const SFormsPage = styled.div`
 
           &.active {
             background: green;
+          }
+        }
+      }
+
+      .success {
+        width: 80%;
+        margin: 3rem auto;
+
+        border: 2px solid limegreen;
+        border-radius: 0.4rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        background: rgba(250, 250, 250, 0.5);
+
+        h2 {
+          text-transform: capitalize;
+        }
+
+        .nextStep {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin-top: 2rem;
+
+          button {
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            background: var(--background-fields);
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 0.5rem;
           }
         }
       }
@@ -99,4 +139,4 @@ const SFormsPage = styled.div`
   }
 `;
 
-export default SFormsPage
+export default SFormsPage;
