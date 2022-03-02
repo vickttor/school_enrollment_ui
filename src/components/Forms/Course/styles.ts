@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-const SCourseForm = styled.form`
+import { motion } from "framer-motion";
+
+const SCourseForm = styled(motion.form)`
   padding: 1rem;
   border-radius: 1rem;
   background: var(--background);
   width: 100%;
-  // remove this height
-  height: 550px;
+  padding-bottom: 5rem;
   box-shadow: 1px 1px 3px var(--text-title);
   position: absolute;
   bottom: -20px;
