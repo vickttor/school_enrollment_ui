@@ -12,8 +12,11 @@ import { CourseForm } from "../../components/Forms/Course";
 
 // Styles
 import SFormsPage from "./styles";
+
+// Next Link
 import Link from "next/link";
 
+// Icons
 import { IoClose } from "react-icons/io5/index";
 
 export default function FormsPage() {
