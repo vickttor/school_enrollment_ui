@@ -37,15 +37,16 @@ const SEditPage = styled.div`
     flex-basis: 60%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    flex-direction: column;
+
     padding: 1rem;
 
     .formTemplate {
-      width: 80%;
-      height: 600px;
-      position: relative;
+      width: 90%;
+      min-height: 500px;
+      padding-top: 1rem;
       margin: 1rem;
       background: var(--hue);
       border-radius: 2rem;
@@ -113,10 +114,25 @@ const SEditPage = styled.div`
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1180px) {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: baseline;
+    gap: 5rem;
+    margin: 0;
+    padding: 0;
+
+    .formsContainer {
+      width: 100%;
+      align-items: center;
+      margin: 0;
+
+      .formTemplate {
+        flex: 1;
+        margin-top: 5rem;
+        padding-top: 3rem;
+      }
+    }
   }
 `;
 
