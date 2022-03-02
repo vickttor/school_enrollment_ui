@@ -7,10 +7,11 @@ const STeacherForm = styled(motion.form)`
   border-radius: 1rem;
   background: var(--background);
   width: 100%;
-  height: 550px;
+  display: flex;
+  flex-direction: column;
   box-shadow: 1px 1px 3px var(--text-title);
-  position: absolute;
-  bottom: -20px;
+  position: relative;
+  bottom: -30px;
   left: -50px;
 
   .inputsInLine {
@@ -58,10 +59,7 @@ const STeacherForm = styled(motion.form)`
   }
 
   button {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-
+    align-self: flex-end;
     border: 0;
     border-radius: 0.4rem;
     padding: 1rem;
@@ -72,6 +70,20 @@ const STeacherForm = styled(motion.form)`
 
     &:hover {
       filter: brightness(0.9);
+    }
+  }
+
+  @media (max-width: 1180px) {
+    position: normal;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+
+    .inputsInLine {
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      gap: 1rem;
     }
   }
 `;

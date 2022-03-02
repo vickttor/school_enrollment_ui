@@ -9,9 +9,16 @@ const SCourseForm = styled(motion.form)`
   width: 100%;
   padding-bottom: 5rem;
   box-shadow: 1px 1px 3px var(--text-title);
-  position: absolute;
+  position: relative;
   bottom: -20px;
   left: -50px;
+
+  @media (max-width: 1180px) {
+    position: normal;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+  }
 
   input,
   select,

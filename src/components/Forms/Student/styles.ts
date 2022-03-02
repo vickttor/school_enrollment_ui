@@ -7,10 +7,10 @@ const SStudentForm = styled(motion.form)`
   border-radius: 1rem;
   background: var(--background);
   width: 100%;
-  height: 560px;
+
   box-shadow: 1px 1px 3px var(--text-title);
-  position: absolute;
-  bottom: -50px;
+  position: relative;
+  bottom: -10px;
   left: -50px;
   display: flex;
   flex-direction: column;
@@ -63,10 +63,7 @@ const SStudentForm = styled(motion.form)`
   }
 
   button {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-
+    align-self: flex-end;
     border: 0;
     border-radius: 0.4rem;
     padding: 1rem;
@@ -77,6 +74,35 @@ const SStudentForm = styled(motion.form)`
 
     &:hover {
       filter: brightness(0.9);
+    }
+  }
+
+  @media (max-width: 1180px) {
+    position: normal;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+
+    .inputsInLine {
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .deficiency {
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+
+      justify-content: stretch;
+      margin-bottom: 1rem;
+
+      gap: 1rem;
+
+      input {
+        margin-right: 0;
+      }
     }
   }
 `;
