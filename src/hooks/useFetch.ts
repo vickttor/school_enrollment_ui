@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 // Importing React
-import * as useReact from "react";
+import { useState, useEffect } from "react";
 
 // Importing axios
 import axios from "axios";
@@ -8,10 +9,11 @@ const api = axios.create({
   baseURL: "http://localhost:3333",
 });
 
+// GET
 export function getData<T = unknown>(local: string, cpf?: string) {
-  const [data, setData] = useReact.useState<T | null>(null);
-  const [isFetching, setIsFetching] = useReact.useState(true);
-  const [error, setError] = useReact.useState<Error | null>(null);
+  const [data, setData] = useState<T | null>(null);
+  const [isFetching, setIsFetching] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   let query = "";
 
@@ -19,11 +21,11 @@ export function getData<T = unknown>(local: string, cpf?: string) {
     query = cpf;
   }
 
-  useReact.useEffect(() => {
+  useEffect(() => {
     api
       .get(`${local}/${query}`)
       .then((response) => {
-        setData(response.data.data);
+        setData(response.data);
       })
       .catch((error) => {
         setError(error);
