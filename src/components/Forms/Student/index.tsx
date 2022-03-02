@@ -164,7 +164,7 @@ export function StudentForm({
 
           <div className="inputsInLine">
             <input
-              type="text"
+              type="number"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
               placeholder="CPF: Apenas os números"
