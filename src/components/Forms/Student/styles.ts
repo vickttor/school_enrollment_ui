@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-const SStudentForm = styled.form`
+import { motion } from "framer-motion";
+
+const SStudentForm = styled(motion.form)`
   padding: 1rem;
   border-radius: 1rem;
   background: var(--background);
   width: 100%;
-  // remove this height
-  height: 90%;
+  height: 560px;
   box-shadow: 1px 1px 3px var(--text-title);
   position: absolute;
   bottom: -50px;
   left: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: baseline;
 
   .inputsInLine {
     display: flex;
