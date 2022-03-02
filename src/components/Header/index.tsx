@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
+import NavLink from "next/link";
 import { SHeader } from "./styles";
 
 const container = {
@@ -43,7 +43,9 @@ export function Header() {
         initial="hidden"
         animate="visible"
       >
-        <Link href="/forms">ADICIONAR</Link>
+        <NavLink href="/forms" passHref>
+          ADICIONAR
+        </NavLink>
       </motion.div>
     </SHeader>
   );
