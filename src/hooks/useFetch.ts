@@ -33,7 +33,7 @@ export function getData<T = unknown>(local: string, cpf?: string) {
       .finally(() => {
         setIsFetching(false);
       });
-  }, []);
+  }, [local, query]);
 
   return { data, isFetching, error };
 }
