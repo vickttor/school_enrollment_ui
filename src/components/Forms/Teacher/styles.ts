@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-const STeacherForm = styled.form`
+import { motion } from "framer-motion";
+
+const STeacherForm = styled(motion.form)`
   padding: 1rem;
   border-radius: 1rem;
   background: var(--background);
   width: 100%;
-  // remove this height
   height: 550px;
   box-shadow: 1px 1px 3px var(--text-title);
   position: absolute;
