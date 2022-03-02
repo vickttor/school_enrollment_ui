@@ -4,7 +4,7 @@ import { BiEdit } from "react-icons/bi/index";
 
 import { getData } from "../../hooks/useFetch";
 
-import Link from "next/link";
+import NavLink from "next/link";
 
 import { formatCPF } from "../../utils/formatCpf";
 
@@ -67,9 +67,12 @@ export function Dashboard() {
                     <td>{entity.title_course}</td>
                     <td>Professor</td>
                     <td align="center">
-                      <Link href={`/edit/teachers?cpf=${entity.cpf}`} passHref>
-                        <BiEdit className="DataEditIcon" size="2ch" />
-                      </Link>
+                      <NavLink
+                        href={`/edit/teachers?cpf=${entity.cpf}`}
+                        passHref
+                      >
+                        <BiEdit className="DataEditIcon" size="24" />
+                      </NavLink>
                     </td>
                   </tr>
                 );
@@ -83,12 +86,12 @@ export function Dashboard() {
                       <td>{entity.title_course}</td>
                       <td>Estudante</td>
                       <td align="center">
-                        <Link
+                        <NavLink
                           href={`/edit/students?cpf=${entity.cpf}`}
                           passHref
                         >
-                          <BiEdit className="DataEditIcon" size="2ch" />
-                        </Link>
+                          <BiEdit className="DataEditIcon" size="24" />
+                        </NavLink>
                       </td>
                     </tr>
                   );
