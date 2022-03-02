@@ -30,6 +30,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/edit/[entity]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/edit/[entity].js"
+    ],
     "/forms": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
