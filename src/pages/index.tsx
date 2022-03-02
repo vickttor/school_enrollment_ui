@@ -4,14 +4,12 @@ import { Header } from "../components/Header";
 import { Dashboard } from "../components/Dashboard";
 
 import { RocketDraw } from "../styles/rocketDraw";
-import { Filter } from "../components/Filter";
 
 export default function App() {
   return (
     <>
       <Header />
       <Dashboard />
-      {/* <Filter /> */}
 
       {/* Rocket Draw background */}
       <RocketDraw>
