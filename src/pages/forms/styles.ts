@@ -6,8 +6,6 @@ const SFormsPage = styled.div`
   background: var(--background);
   padding: 2rem 1rem;
   position: relative;
-  z-index: 999;
-
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -24,7 +22,7 @@ const SFormsPage = styled.div`
   }
 
   .formsContainer {
-    flex-basis: 60%;
+    width: 60%;
 
     display: flex;
     justify-content: center;
@@ -33,8 +31,7 @@ const SFormsPage = styled.div`
     padding: 1rem;
 
     .formOptions {
-      width: 80%;
-      height: 650px;
+      width: 90%;
       position: relative;
       margin: 1rem;
       background: var(--hue);
@@ -48,7 +45,7 @@ const SFormsPage = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 80%;
+        width: 90%;
         margin: 2rem auto;
 
         button {
@@ -132,10 +129,32 @@ const SFormsPage = styled.div`
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1180px) {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: baseline;
+    gap: 5rem;
+
+    .formsContainer {
+      width: 100%;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      .formoptions {
+        flex: 1;
+
+        margin: 0;
+        padding: 0;
+
+        .options {
+          width: 100%;
+          margin: 0.5rem;
+          button {
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
   }
 `;
 
