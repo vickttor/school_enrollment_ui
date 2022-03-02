@@ -1,6 +1,6 @@
 // Next
 import Router, { useRouter } from "next/router";
-import Link from "next/link";
+import NavLink from "next/link";
 
 // Styles
 import SEditPage from "./styles";
@@ -48,9 +48,9 @@ export default function EditPage() {
   return (
     <SEditPage>
       <div className="turnsBackLink">
-        <Link href="/" passHref>
-          <BiArrowBack size="3ch" />
-        </Link>
+        <NavLink href="/" passHref>
+          <BiArrowBack size="26" />
+        </NavLink>
       </div>
 
       <div
@@ -61,7 +61,7 @@ export default function EditPage() {
           Router.push("/");
         }}
       >
-        <FaTrash size="2ch" />
+        <FaTrash size="26" />
       </div>
 
       <div className="formsContainer">
