@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: "https://restfulapi-ax4b.herokuapp.com",
 });
 
-export async function insertData<T = unknown>(
+export async function useInsertData<T = unknown>(
   url: string,
   body: T,
   method?: string
