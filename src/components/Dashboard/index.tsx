@@ -2,8 +2,6 @@ import { SDashboard } from "./styles";
 
 import { BiEdit } from "react-icons/bi/index";
 
-import { getData } from "../../hooks/useFetch";
-
 import NavLink from "next/link";
 
 import { formatCPF } from "../../utils/formatCpf";
@@ -25,41 +23,41 @@ export type APIResponse = {
   id?: string;
 };
 
-export function Dashboard() {
-  const students = getData<APIResponse[]>("students");
-  const teachers = getData<APIResponse[]>("teachers");
+type DashboardProps = {
+  students: APIResponse[];
+  teachers: APIResponse[];
+};
+
+export function Dashboard(props: DashboardProps) {
+  const students = props.students;
+  const teachers = props.teachers;
 
   return (
     <SDashboard>
-      {students.isFetching || teachers.isFetching ? (
-        <p>Carregando...</p>
-      ) : students.error || teachers.error ? (
-        <p>Algum erro ocorreu</p>
-      ) : (students.data && teachers.data && students.data.length !== 0) ||
-        teachers.data?.length !== 0 ? (
-        <motion.div
-          className="tableContainer"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            duration: 2,
-          }}
-        >
-          <table cellSpacing="0">
-            <thead>
-              {/* table header */}
-              <tr>
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>Curso</th>
-                <th>Cargo</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teachers.data?.map((entity) => {
+      <motion.div
+        className="tableContainer"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+          duration: 2,
+        }}
+      >
+        <table cellSpacing="0">
+          <thead>
+            {/* table header */}
+            <tr>
+              <th>CPF</th>
+              <th>Nome</th>
+              <th>Curso</th>
+              <th>Cargo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teachers &&
+              teachers?.map((entity) => {
                 return (
                   <tr key={entity.id}>
                     <td>{formatCPF(entity.cpf)}</td>
@@ -77,31 +75,28 @@ export function Dashboard() {
                   </tr>
                 );
               })}
-              {students.data &&
-                students.data?.map((entity) => {
-                  return (
-                    <tr key={entity.id}>
-                      <td>{formatCPF(entity.cpf)}</td>
-                      <td>{entity.full_name}</td>
-                      <td>{entity.title_course}</td>
-                      <td>Estudante</td>
-                      <td align="center">
-                        <NavLink
-                          href={`/edit/students?cpf=${entity.cpf}`}
-                          passHref
-                        >
-                          <BiEdit className="DataEditIcon" size="24" />
-                        </NavLink>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </motion.div>
-      ) : (
-        <p>Não Há estudantes nem professores</p>
-      )}
+            {students &&
+              students?.map((entity) => {
+                return (
+                  <tr key={entity.id}>
+                    <td>{formatCPF(entity.cpf)}</td>
+                    <td>{entity.full_name}</td>
+                    <td>{entity.title_course}</td>
+                    <td>Estudante</td>
+                    <td align="center">
+                      <NavLink
+                        href={`/edit/students?cpf=${entity.cpf}`}
+                        passHref
+                      >
+                        <BiEdit className="DataEditIcon" size="24" />
+                      </NavLink>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </motion.div>
     </SDashboard>
   );
 }
