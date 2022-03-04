@@ -2,13 +2,13 @@
 import { useState, useEffect, BaseSyntheticEvent } from "react";
 
 // Own hook
-import { getData } from "../../../hooks/useFetch";
+import { useGetData } from "../../../hooks/useFetch";
 
 // Course type
 import { CourseDataType } from "../Course/index";
 
 // Post Data
-import { insertData } from "../../../hooks/useInsert";
+import { useInsertData } from "../../../hooks/useInsert";
 
 // Next Router
 import Router from "next/router";
@@ -45,7 +45,7 @@ export function StudentForm({
 
   const [result, setResult] = useState(false);
 
-  const courses = getData<CourseDataType[]>("courses");
+  const courses = useGetData<CourseDataType[]>("courses");
 
   useEffect(() => {
     if (courses.data) {
@@ -85,7 +85,8 @@ export function StudentForm({
         cpfToUpdate = "";
       }
 
-      const result = await insertData<APIResponse>(
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const result = await useInsertData<APIResponse>(
         `students/${cpfToUpdate}`,
         objectToSend,
         method

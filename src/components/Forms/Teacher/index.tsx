@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 // React hooks
 import { useState, useEffect, BaseSyntheticEvent } from "react";
 
@@ -5,8 +6,8 @@ import { useState, useEffect, BaseSyntheticEvent } from "react";
 import Router from "next/router";
 
 // Own Hooks
-import { insertData } from "../../../hooks/useInsert";
-import { getData } from "../../../hooks/useFetch";
+import { useInsertData } from "../../../hooks/useInsert";
+import { useGetData } from "../../../hooks/useFetch";
 
 // Types type
 import { APIResponse } from "../../Dashboard";
@@ -36,7 +37,7 @@ export function TeacherForm({
 
   const [result, setResult] = useState(false);
 
-  const courses = getData<CourseDataType[]>("courses");
+  const courses = useGetData<CourseDataType[]>("courses");
 
   useEffect(() => {
     if (courses.data) {
@@ -72,7 +73,7 @@ export function TeacherForm({
         cpfToUpdate = "";
       }
 
-      const result = await insertData<APIResponse>(
+      const result = await useInsertData<APIResponse>(
         `teachers/${cpfToUpdate}`,
         objectToSend,
         method

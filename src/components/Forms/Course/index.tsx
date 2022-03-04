@@ -5,7 +5,7 @@ import { useState, BaseSyntheticEvent } from "react";
 import Router from "next/router";
 
 // Own hooks
-import { insertData } from "../../../hooks/useInsert";
+import { useInsertData } from "../../../hooks/useInsert";
 
 // Styles
 import { SCourseForm } from "./styles";
@@ -34,7 +34,8 @@ export function CourseForm() {
       time_course: timeCourse,
     };
 
-    const result = await insertData<CourseDataType>("courses", objectToSend);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const result = await useInsertData<CourseDataType>("courses", objectToSend);
 
     if (result.data.error) {
       alert(result.data.error);
