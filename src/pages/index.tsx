@@ -1,15 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import { Header } from "../components/Header";
-import { Dashboard } from "../components/Dashboard";
+// React Hooks
+import { useState, useEffect } from "react";
 
+// Components and Types
+import { Header } from "../components/Header";
+import { APIResponse, Dashboard } from "../components/Dashboard";
+
+// Absolute draw
 import { RocketDraw } from "../styles/rocketDraw";
 
-export default function App() {
+// axios
+import axios from "axios";
+
+// Definning the properties of the App Page
+type AppProps = {
+  teachersResult: string;
+  studentsResult: string;
+};
+
+export default function App({ studentsResult, teachersResult }: AppProps) {
+  // creating the state of the students and teachers variable
+  const [students, setStudents] = useState<APIResponse[]>([]);
+  const [teachers, setTeachers] = useState<APIResponse[]>([]);
+
+  // Parsing JSON result from the Server Side and setting the students and teachers variables
+  useEffect(() => {
+    setStudents(JSON.parse(studentsResult));
+    setTeachers(JSON.parse(teachersResult));
+  }, [studentsResult, teachersResult]);
+
   return (
     <>
       <Header />
-      <Dashboard />
+      <Dashboard students={students} teachers={teachers} />
 
       {/* Rocket Draw background */}
       <RocketDraw>
@@ -24,4 +47,22 @@ export default function App() {
       </RocketDraw>
     </>
   );
+}
+
+// Implementing GetServerSideProps to transofrm the SPA in a Front-end SSR
+
+export async function getServerSideProps() {
+  const studentsRequest = await axios.get(
+    "https://restfulapi-ax4b.herokuapp.com/students"
+  );
+  const teachersRequest = await axios.get(
+    "https://restfulapi-ax4b.herokuapp.com/teachers"
+  );
+
+  const studentsResult = JSON.stringify(studentsRequest.data);
+  const teachersResult = JSON.stringify(teachersRequest.data);
+
+  return {
+    props: { studentsResult, teachersResult },
+  };
 }
