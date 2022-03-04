@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 // Next
 import Router, { useRouter } from "next/router";
 import NavLink from "next/link";
@@ -6,8 +7,8 @@ import NavLink from "next/link";
 import SEditPage from "./styles";
 
 // Own hooks
-import { getData } from "../../hooks/useFetch";
-import { deleteData } from "../../hooks/useDelete";
+import { useGetData } from "../../hooks/useFetch";
+import { useDeleteData } from "../../hooks/useDelete";
 
 // Type of the API response
 import { APIResponse } from "../../components/Dashboard";
@@ -38,9 +39,11 @@ export default function EditPage() {
   let informations;
 
   if (entity === "students" && cpf?.length === 11) {
-    informations = getData<APIResponse[]>("students", cpf as string);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    informations = useGetData<APIResponse[]>("students", cpf as string);
   } else if (entity === "teachers" && cpf?.length === 11) {
-    informations = getData<APIResponse[]>("teachers", cpf as string);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    informations = useGetData<APIResponse[]>("teachers", cpf as string);
   } else {
     return <h1>Erro</h1>;
   }
@@ -56,7 +59,7 @@ export default function EditPage() {
       <div
         className="excludeButton"
         onClick={() => {
-          deleteData(`${entity}/${cpf}`);
+          useDeleteData(`${entity}/${cpf}`);
           alert("Os dados foram apagados. Você será redirecionado!");
           Router.push("/");
         }}
