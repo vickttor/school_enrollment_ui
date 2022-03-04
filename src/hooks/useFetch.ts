@@ -10,7 +10,7 @@ const api = axios.create({
 });
 
 // GET
-export function getData<T = unknown>(local: string, cpf?: string) {
+export function useGetData<T = unknown>(local: string, cpf?: string) {
   const [data, setData] = useState<T | null>(null);
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState<Error | null>(null);
