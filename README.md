@@ -1,4 +1,4 @@
-# TodoList with ReactJS - Rocketseat Ignite
+# School Enrollments
 
 Hi, in this repository you will find the source code of a project built with NextJS and another technologies. All the Project was pre-planned before to code. I've created the DFD (Data Flow Diagram); Requeriments Analysis; sketches on Figma and Mockflow to create the WireFrame among other things. To find all informations click [here](https://www.notion.so/Desafio-AX4B-CRUD-44e7fc11c839405ea7debb5a9e7db3d0). The application is a webpage to manipulate school informations such as student and teacher enrollments. The application allow us to create, update read and delete data using an API built from zero with NODE and Typescript.
 
