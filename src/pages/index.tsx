@@ -11,6 +11,7 @@ import { RocketDraw } from "../styles/rocketDraw";
 
 // axios
 import axios from "axios";
+import { api } from "../services/api";
 
 // Definning the properties of the App Page
 type AppProps = {
@@ -52,12 +53,8 @@ export default function App({ studentsResult, teachersResult }: AppProps) {
 // Implementing GetServerSideProps to transofrm the SPA in a Front-end SSR
 
 export async function getServerSideProps() {
-  const studentsRequest = await axios.get(
-    "https://restfulapi-ax4b.herokuapp.com/students"
-  );
-  const teachersRequest = await axios.get(
-    "https://restfulapi-ax4b.herokuapp.com/teachers"
-  );
+  const studentsRequest = await api.get("/students");
+  const teachersRequest = await api.get("/teachers");
 
   const studentsResult = JSON.stringify(studentsRequest.data);
   const teachersResult = JSON.stringify(teachersRequest.data);

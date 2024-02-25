@@ -18,8 +18,6 @@ export default function Document() {
         />
         {/* Favicon Icon */}
         <link rel="shortcut icon" href="favicon.png" type="image/png" />
-        {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
-        <title>School Enrollments</title>
       </Head>
       <body>
         <Main />

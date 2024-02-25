@@ -1,8 +1,4 @@
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: "https://restfulapi-ax4b.herokuapp.com",
-});
+import { api } from "../services/api";
 
 export async function useInsertData<T = unknown>(
   url: string,

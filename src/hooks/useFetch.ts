@@ -2,12 +2,7 @@
 // Importing React
 import { useState, useEffect } from "react";
 
-// Importing axios
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: "https://restfulapi-ax4b.herokuapp.com",
-});
+import { api } from "../services/api";
 
 // GET
 export function useGetData<T = unknown>(local: string, cpf?: string) {
